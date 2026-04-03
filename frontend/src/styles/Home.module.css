@@ -1,0 +1,117 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f2f1;
+    /* Light professional gray */
+    font-family: 'Poppins';
+}
+
+.maincontainer {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    gap: 40px;
+    align-items: center;
+}
+
+.maincontainer_left {
+    flex: 1;
+}
+
+.maincontainer_left h1 {
+    font-size: 3rem;
+    color: #8f5847;
+    /* LinkedIn-style branding color */
+    font-weight: 200;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.maincontainer_left p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.maincontainer_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.login_card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.input {
+    padding: 12px;
+    border: 1px solid #00000099;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.button_primary {
+    background-color: #0a66c2;
+    /* Professional Blue */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button_primary:hover {
+    background-color: #004182;
+}
+
+.divider {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: 0.1em;
+    margin: 25px 0;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+    color: #666;
+}
+
+.button_google {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #0a66c2;
+    color: #0a66c2;
+    border-radius: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .maincontainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .maincontainer_left h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.maincontainer {
+    display: flex;
+    width: 100%;
+    max-width: 1128px;
+    padding: 20px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.maincontainer_left {
+    flex: 1.2;
+}
+
+.heroText {
+    font-size: 3rem;
+    color: #8f5847;
+    font-weight: 200;
+    margin-bottom: 15px;
+}
+
+.subText {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.maincontainer_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.login_card {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputGroup input {
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+}
+
+.buttonJoin {
+    background-color: #0a66c2;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.divider {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: 0.1em;
+    margin: 20px 0;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+    color: #666;
+}
+
+.googleBtn {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #666;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.toggleText {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggleLink {
+    color: #0a66c2;
+    font-weight: 600;
+    cursor: pointer;
+}
