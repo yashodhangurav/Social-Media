@@ -1,0 +1,72 @@
+POST http://localhost:9090/register
+Content-Type: application/json
+
+{
+  "username": "rahul",
+  "password": "123456",
+  "email": "rahul@gmail.com",
+  "name": "Rahul Kumar"
+}
+
+###
+
+POST http://localhost:9090/login
+Content-Type: application/json
+
+{
+  "email": "yasho@gmail.com",
+  "password": "123456"
+}
+###
+
+GET http://localhost:9090/get_user_and_profile
+Content-Type: application/json
+
+{
+  "token": "d9fd90f15a7dec4682902ec3d506d194048c36782346402f46880e94e93fd026"
+}
+
+###
+POST http://localhost:9090/update_profile_data
+Content-Type: application/json
+
+
+
+###
+GET http://localhost:9090/get_all_users
+Content-Type: application/json
+
+###
+POST http://localhost:9090/user/send_connection_request
+Content-Type: application/json
+
+{
+  "token": "d9fd90f15a7dec4682902ec3d506d194048c36782346402f46880e94e93fd026",
+  "connectionid": "REPLACE_WITH_USER_ID"
+}
+
+###
+GET http://localhost:9090/user/my_connection_requests
+Content-Type: application/json
+
+{
+  "token": "d9fd90f15a7dec4682902ec3d506d194048c36782346402f46880e94e93fd026"
+}
+
+###
+GET http://localhost:9090/user/what_are_my_connections
+Content-Type: application/json
+
+{
+  "token": "d9fd90f15a7dec4682902ec3d506d194048c36782346402f46880e94e93fd026"
+}
+
+###
+POST http://localhost:9090/user/accept_connection_request
+Content-Type: application/json
+
+{
+  "token": "d9fd90f15a7dec4682902ec3d506d194048c36782346402f46880e94e93fd026",
+  "connectionid": "REPLACE_WITH_USER_ID",
+  "action_type": "accept"
+}
