@@ -22,6 +22,9 @@ const authSlice = createSlice({
         reset: (state) => initialState,
         handleLoginUser: (state) => {
             state.message = "hello"
+        },
+        emptyMessage: (state) => {
+            state.message = ""
         }
     },
 
@@ -60,9 +63,23 @@ const authSlice = createSlice({
                 state.message = action.payload;
             })
 
+            // get_about_user action-> reducer
+            .addCase(getAboutUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload.profile;
+                state.isSuccess = true;
+                state.message = "Profile fetched successfully";
+            })
+            .addCase(getAboutUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
+            })
+
     }
 })
 
+export const { reset, emptyMessage } = authSlice.actions;
 
 export default authSlice.reducer;
 
