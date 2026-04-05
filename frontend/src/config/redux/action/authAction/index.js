@@ -65,4 +65,15 @@ export const getAboutUser = createAsyncThunk("user/getAboutUser", async (user, t
         const errorMessage = error.response?.data?.message || "Failed to fetch user data";
         return thunkAPI.rejectWithValue(errorMessage);
     }
-})
+});
+
+
+export const getAllUsers = createAsyncThunk("user/getAllUsers", async (_, thunkAPI) => {
+    try {
+        const response = await clientServer.get(`/get_all_users`);
+        return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+        const errorMessage = error.response?.data?.message || "Failed to fetch user data";
+        return thunkAPI.rejectWithValue(errorMessage);
+    }
+});

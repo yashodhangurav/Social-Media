@@ -1,0 +1,200 @@
+.container {
+    background-color: #f3f2ef;
+    min-height: 100vh;
+    padding-top: 60px;
+    /* Adjust for your Navbar height */
+    overflow-x: hidden;
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    max-width: 1128px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    gap: 24px;
+}
+
+/* Sidebar behavior: Sticky so they stay visible while feed scrolls */
+.left_container,
+.right_container {
+    flex: 0 0 225px;
+    position: sticky;
+    top: 80px;
+    /* Sticks beneath Navbar */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.right_container {
+    flex: 0 0 300px;
+}
+
+.feed_container {
+    flex: 1;
+    max-width: 555px;
+}
+
+/* Card Baselines */
+.profile_card,
+.discovery_card,
+.news_card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Left Nav styling */
+.discovery_card {
+    padding: 8px 0;
+}
+
+.nav_btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav_btn:hover {
+    background-color: #f0f2f5;
+    color: #000;
+}
+
+.nav_btn_simple {
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #0a66c2;
+    cursor: pointer;
+}
+
+.nav_btn_simple:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ebebeb;
+    margin: 8px 0;
+}
+
+/* Profile Card Specifics */
+.cover_photo {
+    height: 56px;
+    background: linear-gradient(to right, #0a66c2, #004182);
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    background-color: #fff;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: -38px auto 0;
+    background-image: url('https://via.placeholder.com/150');
+    /* Profile pic placeholder */
+    background-size: cover;
+}
+
+.profile_info {
+    text-align: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.profile_info h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.profile_info p {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 4px;
+}
+
+.stats {
+    padding: 12px;
+}
+
+.stat_item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 0;
+    color: #666;
+}
+
+.stat_count {
+    color: #0a66c2;
+}
+
+/* Right News */
+.news_card {
+    padding: 16px;
+}
+
+.news_card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.news_card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news_card li {
+    font-size: 0.85rem;
+    padding: 6px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.news_card li:hover {
+    background-color: #f9f9f9;
+}
+
+.footer_links {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .right_container {
+        display: none;
+    }
+
+    .main_container {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+    }
+}

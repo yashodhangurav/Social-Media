@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser, registerUser } from "../../action/authAction";
+import { loginUser, registerUser, getAboutUser, getAllUsers } from "../../action/authAction";
 
 
 
@@ -10,9 +10,12 @@ const initialState = {
     isLoading: false,
     loggedIn: false,
     message: "",
+    isTokenThere: false,
     profileFetched: false,
     connections: [],
-    connectionRequest: []
+    connectionRequest: [],
+    all_profiles_fetched: false,
+    allUsers: []
 }
 
 const authSlice = createSlice({
@@ -25,6 +28,12 @@ const authSlice = createSlice({
         },
         emptyMessage: (state) => {
             state.message = ""
+        },
+        setTokenThere: (state) => {
+            state.isTokenThere = true;
+        },
+        setTokenIsNotThere: (state) => {
+            state.isTokenThere = false;
         }
     },
 
@@ -66,7 +75,8 @@ const authSlice = createSlice({
             // get_about_user action-> reducer
             .addCase(getAboutUser.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.user = action.payload.profile;
+                state.user = action.payload.userProfile;
+                state.profileFetched = true;
                 state.isSuccess = true;
                 state.message = "Profile fetched successfully";
             })
@@ -75,11 +85,23 @@ const authSlice = createSlice({
                 state.isError = true;
                 state.message = action.payload;
             })
+            // getAllUsers action-> reducer 
+            .addCase(getAllUsers.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.allUsers = action.payload.profiles;
+                state.all_profiles_fetched = true;
+                state.isSuccess = true;
+            })
+            .addCase(getAllUsers.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload.profiles;
+            })
 
     }
 })
 
-export const { reset, emptyMessage } = authSlice.actions;
+export const { reset, emptyMessage, setTokenThere, setTokenIsNotThere } = authSlice.actions;
 
 export default authSlice.reducer;
 

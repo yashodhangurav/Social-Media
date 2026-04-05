@@ -3,39 +3,39 @@ import React, { useEffect, useState } from 'react'
 import UserLayout from '@/layout/UserLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '@/config/redux/action/postAction';
-import { getAboutUser } from '@/config/redux/action/authAction';
+import { getAboutUser, getAllUsers } from '@/config/redux/action/authAction';
+import styles from './styles.module.css';
+import DashboardLayout from '@/layout/DashboardLayout';
 
 function DashboardComponent() {
-
     const router = useRouter();
-
-    const [isTokenThere, setIsTokenThere] = useState(false);
 
     const dispatch = useDispatch();
     const authState = useSelector((state) => state.auth);
 
 
-    useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            router.push("/login");
-        }
-
-        setIsTokenThere(true);
-    }, [])
 
     useEffect(() => {
-        if (isTokenThere) {
+        if (authState.isTokenThere) {
             dispatch(getAllPosts());
             dispatch(getAboutUser({ token: localStorage.getItem("token") }));
         }
-    }, [isTokenThere])
+
+        if (!authState.all_profiles_fetched) {
+            dispatch(getAllUsers());
+        }
+    }, [authState.isTokenThere]);
 
     return (
         <UserLayout>
-            <div style={{ padding: '80px 20px', textAlign: 'center' }}>
-                <h1>Dashboard</h1>
-                <p>Welcome to your network dashboard!</p>
-            </div>
+            <DashboardLayout>
+                <div className="scrollComponent">
+                    <div className="createPostContainer">
+
+                    </div>
+                </div>
+
+            </DashboardLayout>
         </UserLayout>
     )
 }
